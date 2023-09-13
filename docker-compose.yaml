@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  heimdall:
+    container_name: heimdall
+    image: lscr.io/linuxserver/heimdall:latest
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Asia/Kuching
+    volumes:
+      - /data/heimdall/config:/config
+    ports:
+      - 1000:80
+      - 1001:443
+    restart: unless-stopped
